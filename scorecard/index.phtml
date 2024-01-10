@@ -1,0 +1,92 @@
+
+
+<?php
+$students = [
+    [
+        "firstName" => "James",
+        "lastName" => "Fields",
+        "grades" => [12, 11, 15],
+        "average" => -1
+    ],
+    [
+        "firstName" => "Richard",
+        "lastName" => "Stein",
+        "grades" => [18, 12, 13],
+        "average" => -1
+    ],
+    [
+        "firstName" => "Mark",
+        "lastName" => "Hartoff",
+        "grades" => [9, 11, 10],
+        "average" => -1
+    ],
+    [
+        "firstName" => "Thomas",
+        "lastName" => "Nestle",
+        "grades" => [9, 8, 5],
+        "average" => -1
+    ],
+    [
+        "firstName" => "Jeremy",
+        "lastName" => "Brent",
+        "grades" => [18, 15, 16],
+        "average" => -1
+    ]
+];
+
+function aver(array &$students) : void{
+    foreach($students as &$student) {
+        $sum = 0;
+        foreach($student["grades"] as $grade) {
+            $sum += $grade;
+        }
+        $student["average"] = $sum / count($student["grades"]);
+    }
+}
+
+
+aver($students);
+
+function classColor(int $numb): string{
+    if ($numb<10) {
+        return "red";
+    } elseif ($numb>13) {
+        return "green";
+    } else {
+        return "orange";
+    }
+}
+
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scorecard</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    
+<?php
+foreach ($students as $student) {
+    echo "<article class='" . classColor($student["average"]) . "'>
+            <header>
+                <h1>{$student["firstName"]} {$student["lastName"]}</h1>
+            </header>
+            <section>
+                <h2>Notes : </h2>
+                <ul>
+                    <li>Note 1: {$student["grades"][0]}</li>
+                    <li>Note 2: {$student["grades"][1]}</li>
+                    <li>Note 3: {$student["grades"][2]}</li>
+                </ul>
+            </section>
+            <footer>
+                <h3>Moyenne des notes de l'étudiant: " . number_format($student["average"], 2) . "</h3>
+            </footer>
+        </article>";
+}
+?>
+</body>
+</html>
