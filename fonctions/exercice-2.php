@@ -1,10 +1,10 @@
 <?php
-function average($table) {
+function average(array $array): int {
     $result = 0;
-    for ($i = 0; $i < count($table); $i++) {
-        $result += $table[$i];
+    for ($i = 0; $i < count($array); $i++) {
+        $result += $array[$i];
     }
-    return $result / count($table);
+    return $result / count($array);
 }
 
 echo average([12, 15, 18, 9]) . "<br>";

@@ -1,5 +1,5 @@
 <?php
-function concat($string1, $string2) {
+function concat(string $string1, string $string2): string {
     $string = $string1.$string2;
     return $string;
 }

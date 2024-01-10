@@ -1,5 +1,5 @@
 <?php
-function getFirst($table){
+function getFirst(array $table): ? string {
     if (empty($table)) {
         return "null";
     } else {
