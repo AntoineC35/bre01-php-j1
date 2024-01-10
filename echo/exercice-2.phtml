@@ -1,0 +1,35 @@
+<?php
+$number1 = 42;
+$number2 = 33;
+?>
+
+<style type="text/css">
+    .red {
+	color:red;
+}
+
+.blue {
+	color:blue;
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Exercice 2 echo</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<?php
+		for ($i = 1; $i <= 2; $i++) {
+            $currentNumber = ${"number" . $i};
+            if (($currentNumber % 2) === 0) {
+                echo "<p class=\"red\">$currentNumber</p>";
+            } else {
+                echo "<p class=\"blue\">$currentNumber</p>";
+            }
+        }
+		?>
+	</body>
+</html>
